@@ -69,45 +69,75 @@
 </html>
 
 -->
+
+
+
 <!DOCTYPE html>
 <html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Sign-In</title>
+    <title>Pàgina d'inici</title>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="915824815818-h0g8llb0gjjj3151vb7cv51e1of1lgvr.apps.googleusercontent.com">
+            
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 60px;
+        }
+        header {
+            background-color: #4f92d6;
+            color: rgb(255, 255, 255);
+            padding: 20px;
+            border-top-left-radius: 16px; 
+            border-top-right-radius: 16px;
+            text-align: center;
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-bottom-left-radius: 16px; 
+            border-bottom-right-radius: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #888;
+        }
+    </style>
 </head>
 <body>
-    <div id="g_id_onload" 
-         data-client_id="915824815818-h0g8llb0gjjj3151vb7cv51e1of1lgvr.apps.googleusercontent.com" 
-         data-callback="onSignIn">
-    </div>
+    <header>
+        <h1>Benvingut a la meva pàgina web</h1>
+    </header>
+    <main> 
+        <h2>Sign In Google</h2>
+        <br>
+    <div id="g_id_onload" data-client_id="915824815818-h0g8llb0gjjj3151vb7cv51e1of1lgvr.apps.googleusercontent.com" data-callback="onSignIn"></div>
     <div class="g_id_signin" data-type="standard"></div>
     <p id="welcome-message" style="display:none;">Benvingut/da!</p>
     <button id="signout-button" style="display:none;" onclick="signOut()">Desconnectar</button>
     <script>
-        function onSignIn(response) {
-            var profile = response.getBasicProfile();
-            var id_token = response.getAuthResponse().id_token;
-            console.log("ID Token: " + id_token);
-            console.log("Name: " + profile.getName());
-
+        function onSignIn() {
             document.getElementById('welcome-message').style.display = 'block';
             document.getElementById('signout-button').style.display = 'block';
             document.querySelector('.g_id_signin').style.display = 'none';
         }
-
         function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-                console.log('User signed out.');
-                document.getElementById('welcome-message').style.display = 'none';
-                document.getElementById('signout-button').style.display = 'none';
-                document.querySelector('.g_id_signin').style.display = 'block';
-            });
+            document.getElementById('welcome-message').style.display = 'none';
+            document.getElementById('signout-button').style.display = 'none';
+            document.querySelector('.g_id_signin').style.display = 'block';
         }
     </script>
+
+    </main> 
+    <footer> 
+        <p>&copy; 2024 El meu lloc web. Tots els drets reservats.</p> 
+    </footer> 
 </body>
-</html>
