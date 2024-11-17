@@ -44,6 +44,8 @@
     <meta name="google-signin-client_id" content="211194129317-7ubnkcmchkjc2j4694mh7lhnpt0aato5.apps.googleusercontent.com">
 </head>
 <body>
+<h1>Goole Sign-in</h1>
+    <br>
     <div id="g_id_onload"
          data-client_id="211194129317-7ubnkcmchkjc2j4694mh7lhnpt0aato5.apps.googleusercontent.com"
          data-context="signin"
@@ -52,7 +54,7 @@
          data-auto_prompt="false">
     </div>
     <div class="g_id_signin" data-type="standard"></div>
-    <button onclick="signOut()">Desconnectar</button>
+    <!-- <button onclick="signOut()">Desconnectar</button> -->
 
     <script>
         function onSignIn(response) {
@@ -60,9 +62,9 @@
             console.log('ID Token: ' + profile);
         }
 
-        function signOut() {
+ <!--       function signOut() {
             console.log('Usuari desconnectat.');
-        }
+        } -->
     </script>
 </body>
 </html>
