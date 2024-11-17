@@ -76,27 +76,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Sign-In</title>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta name="google-signin-client_id" content="915824815818-h0g8llb0gjjj3151vb7cv51e1of1lgvr.apps.googleusercontent.com">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <meta name="google-signin-client_id" content="EL_TEVE_CLIENT_ID.apps.googleusercontent.com">
 </head>
 <body>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-    <a href="#" id="signout-link" style="display:none;" onclick="signOut();">Desconnectar</a>
+    <div id="g_id_onload" data-client_id="EL_TEVE_CLIENT_ID.apps.googleusercontent.com" data-callback="onSignIn"></div>
+    <div class="g_id_signin" data-type="standard"></div>
+    <p id="welcome-message" style="display:none;">Benvingut/da!</p>
+    <button id="signout-button" style="display:none;" onclick="signOut()">Desconnectar</button>
     <script>
-        function onSignIn(googleUser) {
-            var id_token = googleUser.getAuthResponse().id_token;
-            console.log("ID Token: " + id_token);
-            
-            document.getElementById('signout-link').style.display = 'block';
-            document.querySelector('.g-signin2').style.display = 'none';
+        function onSignIn() {
+            document.getElementById('welcome-message').style.display = 'block';
+            document.getElementById('signout-button').style.display = 'block';
+            document.querySelector('.g_id_signin').style.display = 'none';
         }
-
         function signOut() {
-            gapi.auth2.getAuthInstance().signOut().then(function () {
-                console.log('User signed out.');
-                document.getElementById('signout-link').style.display = 'none';
-                document.querySelector('.g-signin2').style.display = 'block';
-            });
+            document.getElementById('welcome-message').style.display = 'none';
+            document.getElementById('signout-button').style.display = 'none';
+            document.querySelector('.g_id_signin').style.display = 'block';
         }
     </script>
 </body>
