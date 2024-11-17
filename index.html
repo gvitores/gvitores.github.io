@@ -36,27 +36,22 @@
     <meta name="google-signin-client_id" content="211194129317-7ubnkcmchkjc2j4694mh7lhnpt0aato5.apps.googleusercontent.com">
 </head>
 <body>
-    <div id="g_id_onload" 
-         data-client_id="211194129317-7ubnkcmchkjc2j4694mh7lhnpt0aato5.apps.googleusercontent.com" 
-         data-context="signin" 
-         data-ux_mode="popup" 
-         data-callback="onSignIn" 
-         data-auto_prompt="false">
-    </div>
+    <h1>Google Sign-In</h1>
+    <br>
+    <div id="g_id_onload" data-client_id="211194129317-7ubnkcmchkjc2j4694mh7lhnpt0aato5.apps.googleusercontent.com" data-callback="onSignIn"></div>
     <div class="g_id_signin" data-type="standard"></div>
-    <button id="signout-button" style="display:none;" onclick="signOut()">Desconnectar</button> 
+    <button id="signout-button" style="display:none;" onclick="signOut()">Desconnectar</button>
     <script>
-        function onSignIn(response) {
-            document.getElementById('signout-button').style.display = 'block'; // Mostra el botó de desconnexió
-            document.querySelector('.g_id_signin').style.display = 'none'; // Amaga el botó de sign-in
+        function onSignIn() {
+            document.getElementById('signout-button').style.display = 'block';
+            document.querySelector('.g_id_signin').style.display = 'none';
         }
-
         function signOut() {
-            console.log('Usuari desconnectat.');
-            document.getElementById('signout-button').style.display = 'none'; // Amaga el botó de desconnexió
-            document.querySelector('.g_id_signin').style.display = 'block'; // Mostra el botó de sign-in
+            document.getElementById('signout-button').style.display = 'none';
+            document.querySelector('.g_id_signin').style.display = 'block';
         }
     </script>
 </body>
 </html>
+
 
