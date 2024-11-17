@@ -44,8 +44,6 @@
          data-auto_prompt="false">
     </div>
     <div class="g_id_signin" data-type="standard"></div>
-    <h2>Dades de l'Usuari:</h2>
-    <p><strong>Nom:</strong> <span id="user-name"></span></p>
     <button onclick="signOut()">Desconnectar</button> 
     <script>
         function onSignIn(response) {
@@ -68,7 +66,6 @@
             var auth2 = gapi.auth2.getAuthInstance();
             auth2.signOut().then(function () {
                 console.log('Usuari desconnectat.');
-                document.getElementById('user-name').textContent = '';
                 document.querySelector('.g_id_signin').style.display = 'block'; // Torna a mostrar el botó de sign-in
                 document.querySelector('button').style.display = 'none'; // Amaga el botó de desconnexió
             });
