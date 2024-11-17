@@ -1,46 +1,11 @@
 <!--
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Sign In</title>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta name="google-signin-client_id" content="211194129317-7ubnkcmchkjc2j4694mh7lhnpt0aato5.apps.googleusercontent.com">
-</head>
-<body>
-   <h1>Google Sign-in</h1>
-    <div id="g_id_onload"
-         data-client_id="211194129317-7ubnkcmchkjc2j4694mh7lhnpt0aato5.apps.googleusercontent.com"
-         data-context="signin"
-         data-ux_mode="popup"
-         data-callback="onSignIn"
-         data-auto_prompt="false">
-    </div>
-    <div class="g_id_signin" data-type="standard"></div>
-    <button onclick="signOut()">Desconnectar</button>
-
-    <script>
-        function onSignIn(response) {
-            const profile = response.credential;
-            console.log('ID Token: ' + profile);
-        }
-
-        function signOut() {
-            console.log('Usuari desconnectat.');
-        }
-    </script>
-</body>
-</html>
--->
-
-<!DOCTYPE html>
 <html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Sign-In</title>
-<!--     <script src="https://apis.google.com/js/platform.js" async defer></script> -->
+
 
    <script src="https://accounts.google.com/gsi/client" async defer></script> 
     <meta name="google-signin-client_id" content="211194129317-7ubnkcmchkjc2j4694mh7lhnpt0aato5.apps.googleusercontent.com">
@@ -59,14 +24,14 @@
          data-callback="onSignIn"
          data-auto_prompt="false">
     </div>
-     <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+     <div class="g-signin2" data-onsuccess="onSignIn"></div> 
 
    
 
     
      
     <div class="g_id_signin" data-type="standard"></div>
-    <!-- <button onclick="signOut()">Desconnectar</button> -->
+    <!-- <button onclick="signOut()">Desconnectar</button> 
 
 <script> 
     function onSignIn(googleUser) {
@@ -92,7 +57,45 @@
     
     function signOut() {
             console.log('Usuari desconnectat.');
-        } --> 
+        } 
     
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Google Sign In</title>
+  <!-- Scripts Google -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="211194129317-7ubnkcmchkjc2j4694mh7lhnpt0aato5.apps.googleusercontent.com">
+</head>
+<body>
+  <h1>Google Sign In</h1>
+  <br>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <a href="#" onclick="signOut();">Sign out</a>
+  <!-- Scripts de Google Sign In -->
+  <script>
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      console.log('ID: ' + profile.getId()); // No enviar al teu backend! Utilitza un token d'ID en canvi.
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail()); // Això és nul si l'àmbit 'email' no està present.
+      var id_token = googleUser.getAuthResponse().id_token;
+      console.log(id_token);
+    }
+
+    function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        console.log('Usuari desconnectat.');
+      });
+    }
+  </script>
 </body>
 </html>
