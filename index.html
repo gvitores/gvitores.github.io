@@ -9,22 +9,26 @@
     <meta name="google-signin-client_id" content="211194129317-7ubnkcmchkjc2j4694mh7lhnpt0aato5.apps.googleusercontent.com">
 </head>
 <body>
-    <h1> Google Sign-In</h1>
-    <br>
- <div id="g_id_onload"
+   <h1>Google Sign-in</h1>
+    <div id="g_id_onload"
          data-client_id="211194129317-7ubnkcmchkjc2j4694mh7lhnpt0aato5.apps.googleusercontent.com"
          data-context="signin"
          data-ux_mode="popup"
          data-callback="onSignIn"
          data-auto_prompt="false">
     </div>
-   <div class="g_id_signin" data-type="standard"></div>  
-  <script>
+    <div class="g_id_signin" data-type="standard"></div>
+    <button onclick="signOut()">Desconnectar</button>
+
+    <script>
         function onSignIn(response) {
             const profile = response.credential;
             console.log('ID Token: ' + profile);
         }
 
+        function signOut() {
+            console.log('Usuari desconnectat.');
+        }
     </script>
 </body>
 </html>
