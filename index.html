@@ -36,19 +36,20 @@
     <meta name="google-signin-client_id" content="211194129317-7ubnkcmchkjc2j4694mh7lhnpt0aato5.apps.googleusercontent.com">
 </head>
 <body>
-    <h1>Google Sign-In</h1>
-    <br>
     <div id="g_id_onload" data-client_id="211194129317-7ubnkcmchkjc2j4694mh7lhnpt0aato5.apps.googleusercontent.com" data-callback="onSignIn"></div>
     <div class="g_id_signin" data-type="standard"></div>
+    <p id="welcome-message" style="display:none;">Benvingut/da!</p>
     <button id="signout-button" style="display:none;" onclick="signOut()">Desconnectar</button>
     <script>
         function onSignIn() {
-            document.getElementById('signout-button').style.display = 'block';
-            document.querySelector('.g_id_signin').style.display = 'none';
+            document.getElementById('welcome-message').style.display = 'block'; // Mostra el missatge de benvinguda
+            document.getElementById('signout-button').style.display = 'block'; // Mostra el botó de desconnexió
+            document.querySelector('.g_id_signin').style.display = 'none'; // Amaga el botó de sign-in
         }
         function signOut() {
-            document.getElementById('signout-button').style.display = 'none';
-            document.querySelector('.g_id_signin').style.display = 'block';
+            document.getElementById('welcome-message').style.display = 'none'; // Amaga el missatge de benvinguda
+            document.getElementById('signout-button').style.display = 'none'; // Amaga el botó de desconnexió
+            document.querySelector('.g_id_signin').style.display = 'block'; // Mostra el botó de sign-in
         }
     </script>
 </body>
