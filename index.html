@@ -23,42 +23,25 @@
          data-callback="onSignIn"
          data-auto_prompt="false">
     </div>
-    
-<!--    <div class="g-signin2" data-onsuccess="onSignIn"></div> --> 
-
-   
-
-    
+      
      
     <div class="g_id_signin" data-type="standard"></div>
-    <!-- <button onclick="signOut()">Desconnectar</button>  -->
+    <br>
+    <button onclick="signOut()">Desconnectar</button> 
 
 <script> 
 
         function onSignIn(response) {
             const profile = response.credential;
             console.log('ID Token: ' + profile);
+         }
+       function signOut() {
+            console.log('Usuari desconnectat.');
+        } 
 
-        }
 
 </script>    
       
  
-<!--  
-<script>
- 
-
-      
-
-    
-           function onSignIn(response) {
-            const profile = response.credential;
-            console.log('ID Token: ' + profile);
-        }
-    
-    function signOut() {
-            console.log('Usuari desconnectat.');
-        } 
-    -->
 </body>
 </html>
