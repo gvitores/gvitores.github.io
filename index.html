@@ -39,7 +39,8 @@
 <body>
     <div id="g_id_onload" 
          data-client_id="915824815818-h0g8llb0gjjj3151vb7cv51e1of1lgvr.apps.googleusercontent.com" 
-         data-auto_prompt="false">
+         data-auto_prompt="false"
+         data-callback="onSignIn">
     </div>
     <div class="g_id_signin"
          data-type="standard"
@@ -55,6 +56,7 @@
             document.getElementById('signout-button').style.display = 'block';
             document.querySelector('.g_id_signin').style.display = 'none';
         }
+        
         function signOut() {
             document.getElementById('signout-button').style.display = 'none';
             document.querySelector('.g_id_signin').style.display = 'block';
@@ -62,5 +64,3 @@
     </script>
 </body>
 </html>
-
-
