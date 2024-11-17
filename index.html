@@ -34,11 +34,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Sign-In</title>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <meta name="google-signin-client_id" content="915824815818-h0g8llb0gjjj3151vb7cv51e1of1lgvr.apps.googleusercontent.com">
 </head>
 <body>
-    <div id="g_id_onload" 
-         data-client_id="915824815818-h0g8llb0gjjj3151vb7cv51e1of1lgvr.apps.googleusercontent.com" 
+    <div id="g_id_onload"
+         data-client_id="915824815818-h0g8llb0gjjj3151vb7cv51e1of1lgvr.apps.googleusercontent.com"
          data-auto_prompt="false"
          data-callback="onSignIn">
     </div>
@@ -50,17 +49,22 @@
          data-shape="rectangular"
          data-logo_alignment="left">
     </div>
-    <button id="signout-button" style="display:none;" onclick="signOut()">Desconnectar</button>
+    <a href="#" id="signout-link" style="display:none;" onclick="signOut();">Desconnectar</a>
     <script>
-        function onSignIn() {
-            document.getElementById('signout-button').style.display = 'block';
+        function onSignIn(response) {
+            var id_token = response.credential;
+            console.log("ID Token: " + id_token);
+            
+            document.getElementById('signout-link').style.display = 'block';
             document.querySelector('.g_id_signin').style.display = 'none';
         }
-        
+
         function signOut() {
-            document.getElementById('signout-button').style.display = 'none';
+            console.log('User signed out.');
+            document.getElementById('signout-link').style.display = 'none';
             document.querySelector('.g_id_signin').style.display = 'block';
         }
     </script>
 </body>
 </html>
+
