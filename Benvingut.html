@@ -9,21 +9,9 @@
     <h1>Benvingut/da!</h1>
     <button id="signout-button" onclick="signOut()">Desconnectar</button>
     <script>
-        function getUserNameFromUrl() {
-            const params = new URLSearchParams(window.location.search);
-            return params.get('user') || 'Usuari';
-        }
-
-        function onSignIn() {
-            const userName = getUserNameFromUrl();
-            document.body.insertAdjacentHTML('afterbegin', `<p id="user-name">Hola, ${userName}</p>`);
-        }
-
         function signOut() {
             window.location.href = 'index.html';
         }
-
-        window.onload = onSignIn;
     </script>
 </body>
 </html>
