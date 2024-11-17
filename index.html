@@ -40,7 +40,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Sign-In</title>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<!--    <script src="https://accounts.google.com/gsi/client" async defer></script> -->
     <meta name="google-signin-client_id" content="211194129317-7ubnkcmchkjc2j4694mh7lhnpt0aato5.apps.googleusercontent.com">
 </head>
 <body>
@@ -54,9 +56,9 @@
          data-auto_prompt="false">
     </div>
      <div class="g-signin2" data-onsuccess="onSignIn"></div>
-    <!--
+   <!--  
     <div class="g_id_signin" data-type="standard"></div>
-     <button onclick="signOut()">Desconnectar</button> -->
+    <button onclick="signOut()">Desconnectar</button> -->
 
     <script>
         function onSignIn(response) {
