@@ -39,7 +39,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Sign In</title>
+    <title>Google Sign-In</title>
 <!--     <script src="https://apis.google.com/js/platform.js" async defer></script> -->
 
    <script src="https://accounts.google.com/gsi/client" async defer></script> 
@@ -51,7 +51,7 @@
  
     
     
-    
+    <!-- 
     <div id="g_id_onload"
          data-client_id="211194129317-7ubnkcmchkjc2j4694mh7lhnpt0aato5.apps.googleusercontent.com"
          data-context="signin"
@@ -59,7 +59,7 @@
          data-callback="onSignIn"
          data-auto_prompt="false">
     </div>
-    <!--  <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+     <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
 
    
 
@@ -68,19 +68,28 @@
     <div class="g_id_signin" data-type="standard"></div>
     <!-- <button onclick="signOut()">Desconnectar</button> -->
 
-    <script>
+<script> 
+    function onSignIn(googleUser) 
+    { 
+        var profile = googleUser.getBasicProfile(); 
+        document.getElementById('user-id').textContent = profile.getId(); 
+        document.getElementById('user-name').textContent = profile.getName();
+        document.getElementById('user-email').textContent = profile.getEmail(); }
+</script>    
+      
+ 
+<!--  
+<script>
  function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
   console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
 
-        
- 
-</script>
-<!--       
+      
+
+    
            function onSignIn(response) {
             const profile = response.credential;
             console.log('ID Token: ' + profile);
