@@ -125,7 +125,9 @@
     <button id="signout-button" style="display:none;" onclick="signOut()">Desconnectar</button>
        <br>
     <script>
-        function onSignIn() {
+        function onSignIn(response) {
+            var id_token = response.credential; 
+            console.log("ID Token: " + id_token);
             document.getElementById('welcome-message').style.display = 'block';
             document.getElementById('signout-button').style.display = 'block';
             document.querySelector('.g_id_signin').style.display = 'none';
