@@ -207,7 +207,7 @@
         <div id="g_id_onload" data-client_id="915824815818-h0g8llb0gjjj3151vb7cv51e1of1lgvr.apps.googleusercontent.com" data-callback="onSignIn"></div>
         <div class="g_id_signin" data-type="standard"></div>
         <h2 id="welcome-message" style="display:none;">Benvingut/da!</h2>
-        <button id="signout-button" style="display:none;" onclick="signOut()">Desconnectar</button>
+        <a href="#" id="signout-link" style="display:none;" onclick="signOut();">Desconnectar</a>
         <br>
         <script>
             function onSignIn(response) {
@@ -215,7 +215,7 @@
                 console.log("ID Token: " + id_token);
 
                 document.getElementById('welcome-message').style.display = 'block';
-                document.getElementById('signout-button').style.display = 'block';
+                document.getElementById('signout-link').style.display = 'block';
                 document.querySelector('.g_id_signin').style.display = 'none';
             }
 
@@ -224,21 +224,20 @@
                 auth2.signOut().then(function () {
                     console.log('User signed out.');
                     document.getElementById('welcome-message').style.display = 'none';
-                    document.getElementById('signout-button').style.display = 'none';
+                    document.getElementById('signout-link').style.display = 'none';
                     document.querySelector('.g_id_signin').style.display = 'block';
                 });
             }
 
             function startApp() {
                 gapi.load('auth2', function() {
-                    gapi.auth2.init().then(function() {
-                        // Auth2 initialized successfully
-                    }).catch(function(error) {
-                        console.error("Error during gapi.auth2.init():", error);
-                    });
+                    gapi.auth2.init();
                 });
             }
-            startApp();
+
+            window.onload = function() {
+                startApp();
+            }
         </script>
     </main> 
     <footer> 
@@ -246,3 +245,4 @@
     </footer> 
 </body>
 </html>
+
