@@ -127,7 +127,6 @@
     <script>
         function onSignIn(response) {
             var id_token = response.credential; 
-            console.log('ID: ' + profile.getId()); 
             console.log("ID Token: " + id_token);
             document.getElementById('welcome-message').style.display = 'block';
             document.getElementById('signout-button').style.display = 'block';
